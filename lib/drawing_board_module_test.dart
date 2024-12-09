@@ -165,14 +165,14 @@ class _DrawingPageState extends State<DrawingPage>
     getAnswer_andUpdateElements();
     _timerController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 30), // Set the desired countdown time
+      duration: Duration(seconds: 20), // Set the desired countdown time
     )
       ..addListener(() {
         setState(() {
           // Update time bar color and width based on remaining time
           double progress = _timerController.value;
           timeColor = Color.lerp(Colors.green, Colors.red, progress)!;
-          timeWidth = 30 * (1 - progress);
+          timeWidth = 20 * (1 - progress);
 
           // Trigger shake effect when time is low
           if (progress > 0.8) {
@@ -362,8 +362,8 @@ class _DrawingPageState extends State<DrawingPage>
 
   // Function to map score to difficulty
   int _mapScoreToDifficulty(int score) {
-    if (score < 30) return 0; // Easy
-    if (score < 70) return 1; // Medium
+    if (score <= 40) return 0; // Easy
+    if (score <= 60) return 1; // Medium
     return 2; // Hard
   }
 

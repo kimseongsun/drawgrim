@@ -502,7 +502,7 @@ class _NewMessageState extends State<NewMessage> {
                   if (playerSnapshot.exists) {
                     int currentScore = playerSnapshot.get('score') ?? 0;
                     transaction.update(playerRef, {
-                      'score': currentScore + 50
+                      'score': currentScore + 30
                     });
                   }
                 });
